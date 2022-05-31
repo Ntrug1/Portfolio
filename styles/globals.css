@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 body {
-  color: white;
   background: black;
   font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
     sans-serif;
