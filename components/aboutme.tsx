@@ -6,8 +6,8 @@ const AboutMe: React.FC = () => {
       <div className='container mx-auto px-11 '>
         <p className='leading-tight max-w-5xl mx-auto text-4xl tracking-tight'>
           <strong>
-            Reprehenderit ut quis ipsum sint veniam est aute reprehenderit irure laboris ullamco ipsum enim laborum. 
-          </strong> Officia commodo ullamco veniam ex deserunt consequat do qui deserunt sint nostrud ullamco Lorem.
+            About me 
+          </strong> 
         </p>
       </div>
       <div className='container mx-auto px-11 text-center mt-28'>
