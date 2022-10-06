@@ -1,5 +1,4 @@
-import React from "react";
-import Image from "next/image";
+import React, {useRef, useContext, useState, useCallback} from "react";
 import { ArrowDown2 } from "iconsax-react";
 
 const Masthead: React.FC = () => {

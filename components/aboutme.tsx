@@ -11,7 +11,7 @@ const AboutMe: React.FC = () => {
         </p>
       </div>
       <div className='container mx-auto px-11 text-center mt-28'>
-        <h2>ME</h2>
+        <h2></h2>
         
       </div>
     </section>
