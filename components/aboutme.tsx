@@ -9,7 +9,14 @@ const AboutMe: React.FC = () => {
         </p>
       </div>
       <div className="container mx-auto px-11 text-center mt-28">
-        <h2>Hello</h2>
+        <h2>
+          Sunt commodo elit duis cillum esse. Dolor magna pariatur elit ea ea.
+          Ad ullamco nisi id proident occaecat excepteur eiusmod labore. Id
+          cillum ullamco et amet cupidatat sint amet. Aliqua proident sunt ad
+          veniam excepteur veniam ut fugiat tempor minim. Ullamco nisi proident
+          exercitation dolor laborum pariatur aliquip nostrud consectetur
+          tempor.
+        </h2>
       </div>
     </section>
   );

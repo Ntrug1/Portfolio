@@ -24,7 +24,7 @@ const Masthead: React.FC = () => {
         <h1 className="mb-6 text-4xl xl:text-5xl">Trung</h1>
         <h2 className="mb-2 text-2xl xl:text-3xl tracking-tight">
           <span>Hello,</span>
-          <span>I&apos;m fresher front-end developer</span>
+          <span> I&apos;m fresher front-end developer</span>
         </h2>
       </div>
       <div className="flex-grow-0 pb-20 md:pb-10 transition-all duration-1000 z-10">
