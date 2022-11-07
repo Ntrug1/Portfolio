@@ -1,9 +1,27 @@
 import React, { useRef, useContext, useState, useCallback } from "react";
+import Image from "next/image";
 import { ArrowDown2 } from "iconsax-react";
+import { ScrollContext } from "../utils/contexts/ScrollObserver";
 
 const Masthead: React.FC = () => {
+  const refContainer = useRef<HTMLDivElement>(null);
+  const { scrollY } = useContext(ScrollContext);
+
+  let progress = 0;
+
+  const { current: elContainer } = refContainer;
+  if (refContainer && elContainer) {
+    progress = Math.min(1, scrollY / elContainer.clientHeight);
+  }
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div
+      ref={refContainer}
+      style={{
+        transform: `translateY(-${progress * 50}vh)`,
+      }}
+      className="min-h-screen flex flex-col items-center justify-center sticky top-0 -z-10"
+    >
       <video
         autoPlay
         loop
