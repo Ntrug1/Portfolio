@@ -1,6 +1,5 @@
-import React, { useRef, useContext, useState, useCallback } from "react";
-import Image from "next/image";
 import { ArrowDown2 } from "iconsax-react";
+import React, { useContext, useRef } from "react";
 import { ScrollContext } from "../utils/contexts/ScrollObserver";
 
 const Masthead: React.FC = () => {
