@@ -24,7 +24,7 @@ const Skills = () => {
         clientHeight + halfH,
         Math.max(-screenH, scrollY - offsetTop) + halfH
       ) / clientHeight;
-    progress = Math.min(numberOfPage - 0.5, Math.max(0.5, percentY));
+    progress = Math.min(numberOfPage - 0.2, Math.max(0.2, percentY)); // !BUG: not changing opacity correctly when scrolling
   }
 
   return (
@@ -35,24 +35,19 @@ const Skills = () => {
             className={style.skillText}
             style={{ opacity: opacityForBlock(progress, 0) }}
           >
-            Aliqua velit ut magna qui occaecat ea commodo duis consectetur
-            fugiat dolore Lorem pariatur.
+            Aliqua velit ut magna qui
           </div>
           <span
             className={`${style.skillText} inline-block after:content-['_']`}
             style={{ opacity: opacityForBlock(progress, 1) }}
           >
             Proident deserunt ullamco veniam quis deserunt. Amet aliquip
-            consectetur irure id quis est mollit do aute ad eiusmod sit enim.
-            Qui Lorem ipsum non mollit irure culpa mollit sint.
           </span>
           <span
             className={`${style.skillText} inline-block`}
             style={{ opacity: opacityForBlock(progress, 2) }}
           >
             Proident deserunt ullamco veniam quis deserunt. Amet aliquip
-            consectetur irure id quis est mollit do aute ad eiusmod sit enim.
-            Qui Lorem ipsum non mollit irure culpa mollit sint.
           </span>
         </div>
       </div>
