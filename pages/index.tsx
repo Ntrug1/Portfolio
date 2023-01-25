@@ -1,5 +1,6 @@
 import AboutMe from "@components/aboutme";
 import Masthead from "@components/masthead";
+import Skills from "@components/Skills";
 import type { NextPage } from "next";
 import Head from "next/head";
 
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <Masthead />
       <AboutMe />
+      <Skills />
     </div>
   );
 };

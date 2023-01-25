@@ -1,8 +1,9 @@
-import { ArrowDown2 } from "iconsax-react";
-import React, { useContext, useRef } from "react";
-import { ScrollContext } from "../utils/contexts/ScrollObserver";
+import { ScrollContext } from "@utils/contexts/ScrollObserver";
+import Image from "next/image";
+import { useCallback, useContext, useRef, useState } from "react";
 
-const Masthead: React.FC = () => {
+const Masthead = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const refContainer = useRef<HTMLDivElement>(null);
   const { scrollY } = useContext(ScrollContext);
 
@@ -13,11 +14,15 @@ const Masthead: React.FC = () => {
     progress = Math.min(1, scrollY / elContainer.clientHeight);
   }
 
+  const handleImageLoaded = useCallback(() => {
+    setImageLoaded(true);
+  }, []);
+
   return (
     <div
       ref={refContainer}
       style={{
-        transform: `translateY(-${progress * 50}vh)`,
+        transform: `translateY(-${progress * 20}vh)`,
       }}
       className="min-h-screen flex flex-col items-center justify-center sticky top-0 -z-10"
     >
@@ -44,8 +49,18 @@ const Masthead: React.FC = () => {
           <span> I&apos;m fresher front-end developer</span>
         </h2>
       </div>
-      <div className="flex-grow-0 pb-20 md:pb-10 transition-all duration-1000 z-10">
-        <ArrowDown2 size={64} color="white" />
+      <div
+        className={`flex-grow-0 pb-20 md:pb-10 transition-all duration-1000 ${
+          imageLoaded ? "opacity-100" : "opacity-0 -translate-y-10"
+        }`}
+      >
+        <Image
+          src="/assets/arrow-down.svg"
+          alt="scoll down"
+          width={"60%"}
+          height={"60%"}
+          onLoadingComplete={handleImageLoaded}
+        />
       </div>
     </div>
   );
