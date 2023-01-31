@@ -16,6 +16,7 @@ const Skills = () => {
 
   const { current: elContainer } = refContainer;
   if (elContainer) {
+    // !BUG: not changing opacity correctly when scrolling
     const { clientHeight, offsetTop } = elContainer;
     const screenH = window.innerHeight;
     const halfH = screenH / 2;
@@ -24,7 +25,7 @@ const Skills = () => {
         clientHeight + halfH,
         Math.max(-screenH, scrollY - offsetTop) + halfH
       ) / clientHeight;
-    progress = Math.min(numberOfPage - 0.2, Math.max(0.2, percentY)); // !BUG: not changing opacity correctly when scrolling
+    progress = Math.min(numberOfPage - 0.2, Math.max(0.2, percentY));
   }
 
   return (
