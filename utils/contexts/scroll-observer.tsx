@@ -7,11 +7,7 @@ interface ScrollValue {
 export const ScrollContext = React.createContext<ScrollValue>({
   scrollY: 0,
 });
-export default function ScrollObserver({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const ScrollObserver = ({ children }: { children: React.ReactNode }) => {
   const [scrollY, setScrollY] = useState(0);
   const handleScroll = useCallback(() => {
     setScrollY(window.scrollY);
@@ -27,4 +23,6 @@ export default function ScrollObserver({
       {children}
     </ScrollContext.Provider>
   );
-}
+};
+
+export default ScrollObserver;

@@ -1,5 +1,5 @@
 import style from "@styles/skills.module.css";
-import { ScrollContext } from "@utils/contexts/ScrollObserver";
+import { ScrollContext } from "@utils/contexts/scroll-observer";
 import { useContext, useRef } from "react";
 
 const opacityForBlock = (sectionProgress: number, blocNo: number) => {
@@ -7,7 +7,8 @@ const opacityForBlock = (sectionProgress: number, blocNo: number) => {
   if (progress >= 0 && progress < 1) return 1;
   return 0.2;
 };
-const Skills = () => {
+
+const Skills: React.FC = () => {
   const { scrollY } = useContext(ScrollContext);
   const refContainer = useRef<HTMLDivElement>(null);
 
@@ -16,7 +17,6 @@ const Skills = () => {
 
   const { current: elContainer } = refContainer;
   if (elContainer) {
-    // !BUG: not changing opacity correctly when scrolling
     const { clientHeight, offsetTop } = elContainer;
     const screenH = window.innerHeight;
     const halfH = screenH / 2;
@@ -25,7 +25,10 @@ const Skills = () => {
         clientHeight + halfH,
         Math.max(-screenH, scrollY - offsetTop) + halfH
       ) / clientHeight;
-    progress = Math.min(numberOfPage - 0.2, Math.max(0.2, percentY));
+    progress = Math.min(
+      numberOfPage - 0.5,
+      Math.max(0.5, percentY * numberOfPage)
+    );
   }
 
   return (
@@ -43,6 +46,7 @@ const Skills = () => {
             style={{ opacity: opacityForBlock(progress, 1) }}
           >
             Proident deserunt ullamco veniam quis deserunt. Amet aliquip
+            Proident deserunt ullamco veniam quis deserunt. Amet aliquip
           </span>
           <span
             className={`${style.skillText} inline-block`}
@@ -55,4 +59,5 @@ const Skills = () => {
     </div>
   );
 };
+
 export default Skills;

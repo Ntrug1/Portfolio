@@ -1,8 +1,8 @@
-import { ScrollContext } from "@utils/contexts/ScrollObserver";
+import { ScrollContext } from "@utils/contexts/scroll-observer";
 import Image from "next/image";
 import { useCallback, useContext, useRef, useState } from "react";
 
-const Masthead = () => {
+const Masthead: React.FC = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const refContainer = useRef<HTMLDivElement>(null);
   const { scrollY } = useContext(ScrollContext);
@@ -10,7 +10,7 @@ const Masthead = () => {
   let progress = 0;
 
   const { current: elContainer } = refContainer;
-  if (refContainer && elContainer) {
+  if (elContainer) {
     progress = Math.min(1, scrollY / elContainer.clientHeight);
   }
 
@@ -43,11 +43,17 @@ const Masthead = () => {
         />
       </video>
       <div className="p-12 font-bold z-10 text-center drop-shadow[0_5px_3px_rgba(0,0,0,0.4)] flex-1 flex items-center justify-center flex-col">
-        <h1 className="mb-6 text-4xl xl:text-5xl">Trung</h1>
-        <h2 className="mb-2 text-2xl xl:text-3xl tracking-tight">
-          <span>Hello,</span>
-          <span> I&apos;m fresher front-end developer</span>
-        </h2>
+        <div
+          className={`flex-grow-0  transition-all duration-1000 ${
+            imageLoaded ? "opacity-100" : "opacity-0 translate-y-10"
+          }`}
+        >
+          <h1 className="mb-6 text-4xl xl:text-5xl">Trung</h1>
+          <h2 className="mb-2 text-2xl xl:text-3xl tracking-tight">
+            <span>Hello,</span>
+            <span> I&apos;m fresher front-end developer</span>
+          </h2>
+        </div>
       </div>
       <div
         className={`flex-grow-0 pb-20 md:pb-10 transition-all duration-1000 ${
